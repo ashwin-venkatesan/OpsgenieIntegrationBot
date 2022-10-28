@@ -1,2 +1,2 @@
-# Husher---Discord-Bot
-A discord bot developed and designated to handle quarrel in voice channels of discord servers.
+# Opsgenie-Integration-Bot
+A discord bot developed and designated to reaise alerts from discord through Opsgenie API Integration.
