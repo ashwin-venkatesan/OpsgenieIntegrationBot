@@ -24,7 +24,7 @@ client.on(Events.MessageCreate, async (msg) => {
 
 	if(channel === config.closeAllAlertsChannelId) {
 		if(sender === "responder" && message === ".") {
-			closeAlert();
+			closeAlert(true);
 		}
 		else if(sender === "responder" && message === "- . ... -") {
 			createAlert();

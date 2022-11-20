@@ -31,8 +31,8 @@ async function createAlert() {
 	}
 }
 
-async function closeAlert() {
-	if(!alertCreated) return;
+async function closeAlert(force) {
+	if(!force && !alertCreated) return;
 	try {
 		if(timedEvent) clearTimeout(timedEvent);
 		const response = await axios.post('/alerts/cyber-abode-message-received/close?identifierType=alias',{});
