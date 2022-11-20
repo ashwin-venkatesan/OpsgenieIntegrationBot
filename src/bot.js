@@ -10,7 +10,7 @@ const client = new Client({
 });
 
 const config = require('../config');
-const { checkSender, createAlert, closeAlert } = require('./helpers');
+const { checkSender, createAlert, closeAlert, setDelay } = require('./helpers');
 
 client.once(Events.ClientReady, c => {
 	console.log(`Ready! Logged in as ${c.user.tag}`);
@@ -28,7 +28,13 @@ client.on(Events.MessageCreate, async (msg) => {
 		}
 		else if(sender === "responder" && message === "- . ... -") {
 			createAlert();
-		} 
+		}
+		else if(sender === "responder" && message === "- 1") {
+			setDelay(1);
+		}
+		else if(sender === "responder" && message === "- 5") {
+			setDelay(5);
+		}
 	}
 	else {
 		switch(sender) {

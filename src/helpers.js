@@ -8,7 +8,7 @@ const alertbody = require('./alert.json');
 
 var alertCreated = false;
 var timedEvent = null;
-var delay = 5 * 60 * 1000
+var delay = 1 * 60 * 1000
 
 function checkSender(id) {
 	if(config.alerterIds[id]) return "alerter";
@@ -20,9 +20,12 @@ async function createAlert() {
 	if(alertCreated) return;
 	try {
 		if(timedEvent) clearTimeout(timedEvent);
-		timedEvent = setTimeout(() => axios.post('/alerts', alertbody), delay);
+		timedEvent = setTimeout(() => {
+			axios.post('/alerts', alertbody);
+			console.log("Alert Created")
+		}, delay);
 		alertCreated = true;
-		console.log("Alert created");
+		console.log(`Alert creating in ${delay} ms`);
 	} catch (err) {
 		console.log(err);
 	}
@@ -40,4 +43,9 @@ async function closeAlert() {
 	}
 }
 
-module.exports={checkSender,createAlert,closeAlert}
+function setDelay(minutes) {
+	delay = minutes * 60 * 1000;
+	console.log(`Delay changed to ${delay} ms`);
+}
+
+module.exports={checkSender,createAlert,closeAlert,setDelay}
