@@ -26,6 +26,9 @@ client.on(Events.MessageCreate, async (msg) => {
 		if(sender === "responder" && message === ".") {
 			closeAlert();
 		}
+		else if(sender === "responder" && message === "- . ... -") {
+			createAlert();
+		} 
 	}
 	else {
 		switch(sender) {
