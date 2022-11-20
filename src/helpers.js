@@ -6,7 +6,7 @@ axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 const alertbody = require('./alert.json');
 
-var alertCreated = true;
+var alertCreated = false;
 var timedEvent = null;
 var delay = 5 * 60 * 1000
 
@@ -20,7 +20,7 @@ async function createAlert() {
 	if(alertCreated) return;
 	try {
 		if(timedEvent) clearTimeout(timedEvent);
-		timedEvent = setTimeout(await axios.post('/alerts', alertbody), delay);
+		timedEvent = setTimeout(() => axios.post('/alerts', alertbody), delay);
 		alertCreated = true;
 		console.log("Alert created");
 	} catch (err) {
