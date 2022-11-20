@@ -20,7 +20,7 @@ async function createAlert() {
 	if(alertCreated) return;
 	try {
 		if(timedEvent) clearTimeout(timedEvent);
-		timedEvent = setTimeout(axios.post('/alerts', alertbody), delay);
+		timedEvent = setTimeout(await axios.post('/alerts', alertbody), delay);
 		alertCreated = true;
 		console.log("Alert created");
 	} catch (err) {
