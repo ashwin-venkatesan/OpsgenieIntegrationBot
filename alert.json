@@ -1,0 +1,19 @@
+{
+    "message": "Important message in Cyber Abode",
+    "alias": "cyber-abode-message-received",
+    "responders": [
+      {
+        "id": "e6c9ac89-d3d5-4053-a4f5-8d7d16be6a67",
+        "type": "team"
+      }
+    ],
+    "visibleTo": [
+      {
+        "id": "e6c9ac89-d3d5-4053-a4f5-8d7d16be6a67",
+        "type": "team"
+      }
+    ],
+    "tags": ["Critical"],
+    "priority": "P1"
+  }
+  
